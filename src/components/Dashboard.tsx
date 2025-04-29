@@ -52,11 +52,14 @@ const Dashboard = (
 
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-2 gap-8">
+      <div className="space-y-8 lg:grid lg:grid-cols-2 gap-8">
 
         <Card>
           <div className="flex justify-between items-start mb-4">
-            <h2 className="text-2xl font-bold">Sport profile: {session.sportProfileName}</h2>
+            <h2 className="text-2xl font-bold flex flex-col md:gap-2 md:flex-row">
+              <span>Sport profile:</span>
+              <span>{session.sportProfileName}</span>
+            </h2>
             <div className="flex flex-col items-end">
               <label htmlFor="intervalSelect" className="text-sm font-medium text-gray-600 mb-1">
                 Chart Interval
@@ -85,11 +88,13 @@ const Dashboard = (
         </Card>
 
         {
-          timeInZonesSession && <HeartRateBarChart hrZoneData={timeInZonesSession} />
+          timeInZonesSession &&
+          <HeartRateBarChart hrZoneData={timeInZonesSession} />
         }
 
         {
-          cadence && <CadenceLineChart cadence={cadence} labels={labels} />
+          cadence &&
+          <CadenceLineChart cadence={cadence} labels={labels} />
         }
       </div>
 

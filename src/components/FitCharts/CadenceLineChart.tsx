@@ -22,12 +22,14 @@ export const CadenceLineChart = (
   return (
     <Card>
       <h2 className="text-xl font-semibold mb-4">Cadence</h2>
+      <div>
       <LineChart
         title={''}
         labels={labels}
         datasets={cadenceDataset}
         yAxes={yAxes}
       />
+      </div>
     </Card>
   );
 };

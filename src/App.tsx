@@ -42,7 +42,7 @@ function App() {
           <img src={'/images/logo/logo-white-128px.png'} alt={'Logo in white'} className='h-[24px] w-auto' /> Wingu Solutions
         </div>
       </div>
-      <div className='p-8'>
+      <div className='p-2 md:p-8'>
         <h1 className="text-3xl font-bold mb-6 text-center">Fit File analyser</h1>
         <div className='flex flex-col gap-8'>
           {canSelectFile && <FileUploader onFileUpload={handleFileUpload} /> }
