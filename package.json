@@ -1,6 +1,5 @@
 {
   "name": "fit_file_reader",
-  "private": true,
   "contributors": [
     {
       "name": "Daan Perry",
@@ -8,7 +7,8 @@
       "url": "https://daanperry.com"
     }
   ],
-  "version": "0.2.0",
+  "version": "0.6.0",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
