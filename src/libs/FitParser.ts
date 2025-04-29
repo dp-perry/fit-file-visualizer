@@ -1,5 +1,5 @@
 import { Decoder, Stream } from '@garmin/fitsdk';
-import {FitMessages, FitParseResult} from "../types/types.ts";
+import {FitMessages, FitParseResult} from "../types/fitfile";
 
 /**
  * Parse raw .fit file bytes into structured messages
@@ -23,6 +23,7 @@ export const parseFitFile  = (bytes: ArrayBuffer | Uint8Array): FitParseResult =
         splitSummaryMesgs: [],
         userProfileMesgs: [],
         sportMesgs: [],
+        lapMesgs: [],
         recordMesgs: [],
         gpsMetadataMesgs: []
       }, // empty structured message
@@ -42,6 +43,7 @@ export const parseFitFile  = (bytes: ArrayBuffer | Uint8Array): FitParseResult =
     splitSummaryMesgs: messages.splitSummaryMesgs || [],
     userProfileMesgs: messages.userProfileMesgs || [],
     sportMesgs: messages.sportMesgs || [],
+    lapMesgs: messages.lapMesgs || [],
     recordMesgs: messages.recordMesgs || [],
     gpsMetadataMesgs: messages.gpsMetadataMesgs || []
   };
