@@ -35,7 +35,7 @@ export interface FieldDescriptionMesgs {
 // Contains information about the session, such as start time, distance, etc.
 export interface SessionMesg {
   timestamp: string;
-  startTime: string;
+  startTime: Date;
   startPositionLat: number;
   startPositionLong: number;
   totalElapsedTime: number;
@@ -74,6 +74,16 @@ export interface SessionMesg {
   totalAnaerobicTrainingEffect: number;
   totalFractionalAscent: number;
   totalFractionalDescent: number;
+  totalStrides?: number;
+  avgRunningCadence?: number;
+  maxRunningCadence?: number
+  minTemperature?: number;
+  avgTemperature?: number;
+  maxTemperature?: number;
+  avgVerticalOscillation?: number;
+  avgStanceTime?: number;
+  avgVerticalRatio?: number
+  avgStepLength?: number
 }
 
 export interface TimeInZoneMesg {
@@ -246,17 +256,23 @@ export interface ZonesTargetMesg {
 
 // Contains most of the interesting data from the FIT file
 export interface RecordMesg {
-  timestamp: string;
+  timestamp: Date;
   positionLat: number;
   positionLong: number;
   distance: number;
   enhancedSpeed: number;
   enhancedAltitude: number;
   power: number;
-  cycleLength16: number
+  cycleLength16: number;
+  heartRate: number;
   cadence: number;
   activityType: string;
   fractionalCadence: number;
+  verticalOscillation?: number;
+  stanceTime?: number;
+  verticalRatio?: number;
+  stepLength?: number;
+  developerFields?: object
 }
 
 export interface GpsMetadataMesg {
@@ -294,6 +310,7 @@ export interface FitMessages {
   splitMesgs: SplitMesg[];
   splitSummaryMesgs: SplitSummaryMesg[];
   userProfileMesgs: UserProfileMesg[];
+  lapMesgs: LapMesg[];
   sportMesgs: SportMesg[];
   recordMesgs: RecordMesg[]
   gpsMetadataMesgs: GpsMetadataMesg[]
